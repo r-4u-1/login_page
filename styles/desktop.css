@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	height: 100vh;
+	width: 100vw;	
+    background-image: linear-gradient(to right top, #75dbf7, #aaedfc, #dbf8ff, #f9e3fc, #f5bdfe, #f98ef2, #f885fc);
+    padding: 3rem;
+}
+
+.container {
+    background-color: rgba(240, 255, 255, 0.198);
+    margin: 3rem auto;
+    padding: 2rem;
+
+}
