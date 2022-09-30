@@ -7,8 +7,7 @@ body {
 	text-align: center;
 	height: 100vh;
 	width: 100vw;	
-    background-image: linear-gradient(to right top, #7607f5, #6033f7, #9d7cf7, #bda3fe, #a3effc, #51e0f3, #03caf7);
-    /*background-image: linear-gradient(to right top, #75dbf7, #aaedfc, #dbf8ff, #f9e3fc, #f5bdfe, #f98ef2, #f885fc);*/
+    background-image: linear-gradient(to right top, #7607f5, #6033f7, #9d7cf7, #bda3fe, #a3effc, #51e0f3, #03caf7);    
     padding: 3rem;
 }
 
@@ -31,7 +30,7 @@ form .field{
 
 
 form .field:focus {
-    background-color: #85fcfa23;
+    background-color: #aee75a21;
 }
 
 
