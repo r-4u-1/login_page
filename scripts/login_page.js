@@ -4,13 +4,15 @@ const loginModal = document.querySelector(".container");
 const loginForm = document.getElementById("my_form");
 const inputUsernameElement= document.getElementById("username");
 const inputPasswordElement= document.getElementById("password");
+const validUserNameChars = "qwertyuiopåasdfghjklöäzxcvbnmQWERTYUIOPÅASDFGHJKLÖÄZXCVBNM";
+const validPasswordChars = "qwertyuiopåasdfghjklöäzxcvbnmQWERTYUIOPÅASDFGHJKLÖÄZXCVBNM1234567890";
 
 const newUserForm = 
-`<h1>New user</h1><form action="#" method="post" id="my_from">
-<input type="text" placeholder="Choose username" class="field">
-<input type="password" placeholder="Choose password" class="field">
-<input type="submit" value="Create user" class="btn">
-</form> `;
+`<h1>New user</h1><div id="my_form">
+<input type="text" placeholder="Choose username" id="c_username" class="field">
+<input type="password" placeholder="Choose password" id="c_password" class="field">
+<input type="submit" value="Create user" id="createBtn" class="btn">
+</div> `;
 const logoutOption = 
     `<div class="navbar_options">
     <a href="" id="log_out">Logout</a>
@@ -107,4 +109,44 @@ loginBtn.addEventListener("click", function(){
 newUserBtn.addEventListener("click", function(){
     loginModal.removeChild(loginForm);
     loginModal.innerHTML = newUserForm;
+    const creatBtn = document.getElementById("createBtn");
+
+    creatBtn.addEventListener("click", function(){
+        const cUsername = document.getElementById("c_username").value;
+        const cPassword = document.getElementById("c_password").value;
+        let saveUsername;
+        let savePassword;
+        for(const char of cUsername){
+            if (validUserNameChars.includes(char)){
+                saveUsername = true;
+                continue;
+            } 
+            else {
+                saveUsername = false
+                alert("ERROR");
+            }
+        }
+        for(const char of cPassword){
+            if (validPasswordChars.includes(char)){
+                savePassword = true;
+                continue;
+            } 
+            else {
+                savePassword = false;
+                alert("ERROR");
+            } 
+        }
+        if (saveUsername && savePassword){
+            const newUser = {
+                username: cUsername,
+                password: cPassword,
+                loggedIn: "false"
+            }
+            window.localStorage.setItem(newUser.username, JSON.stringify(newUser));
+            const newUserForm = document.getElementById("my_form");
+            const container = document.querySelector(".container");
+            debugger;
+            changeLoginModalToLoggedInUser(newUser, container, newUserForm);
+        }
+    });
 });
