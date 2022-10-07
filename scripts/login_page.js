@@ -20,18 +20,15 @@ const logoutOption =
 
 const fredrik = {
     username: "fredrik",
-    password: "12345",
-    loggedIn: "false"
+    password: "12345"
 }
 const benicio = {
     username: "benicio",
-    password: "456",
-    loggedIn: "false"
+    password: "456"
 }
 const arnold = {
     username: "arnold",
-    password: "789",
-    loggedIn: "false"
+    password: "789"
 }
 const users = [fredrik, benicio, arnold];
 
@@ -87,6 +84,7 @@ loginBtn.addEventListener("click", function(){
     let foundUser = window.localStorage.getItem(inputUsername);
     if (!foundUser){
         inputUsernameElement.style.border = "thick solid #f70a02ce"
+        alert(`username: ${inputUsername} is not found.`);
         return
     }
     let userObject = JSON.parse(foundUser);
@@ -94,6 +92,7 @@ loginBtn.addEventListener("click", function(){
 
     if (!correctPass){
         inputPasswordElement.style.border = "thick solid #f70a02ce"
+        alert(`password: ${inputPassword} is incorrect.`);
         return
     }
 
@@ -123,7 +122,8 @@ newUserBtn.addEventListener("click", function(){
             } 
             else {
                 saveUsername = false
-                alert("ERROR");
+                alert(`username: ${cUsername} is not valid. Only the following characters are allowed: ${validUserNameChars}`);
+                break;
             }
         }
         for(const char of cPassword){
@@ -133,20 +133,22 @@ newUserBtn.addEventListener("click", function(){
             } 
             else {
                 savePassword = false;
-                alert("ERROR");
+                alert(`password: ${cPassword} is not valid. Only the following characters are allowed: ${validPasswordChars}`);
+                break;
             } 
         }
         if (saveUsername && savePassword){
             const newUser = {
                 username: cUsername,
-                password: cPassword,
-                loggedIn: "false"
+                password: cPassword
             }
             window.localStorage.setItem(newUser.username, JSON.stringify(newUser));
+            window.localStorage.setItem('current_user', JSON.stringify(newUser));
             const newUserForm = document.getElementById("my_form");
-            const container = document.querySelector(".container");
-            debugger;
-            changeLoginModalToLoggedInUser(newUser, container, newUserForm);
+            changeLoginModalToLoggedInUser(newUser, loginModal, newUserForm);
+            changeNavBarToLoggedInUserOption();
+            logOutBtn = document.getElementById("log_out"); 
+            logOutBtn.addEventListener("click", logOutUser);
         }
     });
 });
