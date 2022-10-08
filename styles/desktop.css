@@ -31,16 +31,17 @@ nav h1 {
 }
 
 /* Links inside the navbar */
-.navbar_options a {
+.navbar_options a, #nav_new_user, #login, #logout{
     color: #f2f2f2;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 /* Change background on mouse-over */
-.navbar_options a:hover {
+.navbar_options a, #nav_new_user, #login, #logout :hover {
     background: rgba(1, 86, 5, 0.303);
     color: rgb(254, 254, 254);
+    cursor: pointer;
 }
 
 
@@ -98,6 +99,7 @@ form .field:focus {
 .btn:active {
     background-color: #26cfcf;
     border: 0.1rem solid #1F78B4;
+    cursor: pointer;
 }
 
 .container {
