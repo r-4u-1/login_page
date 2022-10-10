@@ -7,21 +7,16 @@ nav {
     overflow: hidden;
     background-color: #0374694a;
     position: fixed;
-    /* Set the navbar to fixed position */
     top: 0;
-    /* Position the navbar at the top of the page */
     width: 100%;
-    /* Full width */
 }
 
 nav h1 {
     position: absolute;
-    /* font-family: 'Comforter Brush', cursive; */
     font-family: 'Noto Emoji', sans-serif;
     font-size: 2rem;
     margin: 0 1rem 0 1rem;
     color: rgb(196, 238, 245);
-    /* text-shadow: 2px 2px purple; */
     text-shadow: 0px 0px 5px rgb(0, 174, 174);
 }
 
@@ -37,7 +32,6 @@ nav h1 {
     text-decoration: none;
 }
 
-/* Change background on mouse-over */
 .navbar_options #nav_new_user:hover, #login:hover, #logout:hover {
     background: rgba(1, 86, 5, 0.303);
     color: rgb(254, 254, 254);
@@ -46,10 +40,7 @@ nav h1 {
 
 body {
     font-family: 'Roboto', sans-serif;
-    /* background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%); */
-    /* background-image: repeating-linear-gradient(to right top,  #473B7B 0%, #3584A7 51%, #30D2BE 100%); */
     height: 100vh;
-    /* width: 100vw;	 */
     background-size: cover;
     background-attachment: fixed;
     width: auto;
@@ -67,10 +58,12 @@ form {
     text-align: center;
 }
 
+
+
 input,
-button {
+button, .error_msg_box {
     padding: 0.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     width: 50%;
     width: clamp(80%, 80%, 850px);
     border: 0.1rem solid transparent;
@@ -101,7 +94,7 @@ form .field:focus {
     cursor: pointer;
 }
 
-.container {
+.container{
     background-color: rgba(7, 98, 25, 0.152);
     margin: 10rem auto;
     padding: 2rem;
@@ -118,5 +111,38 @@ form .field:focus {
     font-size: 2rem;
     margin: 2rem;
     text-align: center;
-    text-shadow: 0px 0px 2px rgb(1, 113, 113);
+    text-shadow: 0px 0px 5px rgb(1, 31, 31);
 }
+
+input:invalid {
+    border: 2px dashed rgb(255, 42, 42);
+    background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(240, 188, 255));
+  }
+
+.error_msg_box{
+    visibility: hidden;
+    font-size: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(255, 157, 157);
+
+    animation-name: hidden;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+}
+
+@keyframes show {
+    0%   {background-color:rgb(255, 255, 255); left:0px; top:0px; visibility: hidden;}
+    100% {background-color:rgb(255, 84, 84); left:0px; top:0px; visibility: visible;}
+  }
+
+@keyframes hide {
+    0% {background-color:red; left:0px; top:0px; visibility: visible;}
+    100%   {background-color:rgb(255, 255, 255); left:0px; top:0px; visibility: hidden;}
+
+}
+
+@keyframes hidden {
+    100% {visibility: hidden;}
+}
+
