@@ -34,8 +34,8 @@
         <div class="container">
             <h1>Login</h1>
             <div id="my_form">
-                <input type="text" placeholder="Username" class="field" id="username">
-                <input type="password" placeholder="Password" class="field" id="password">
+                <input type="text" placeholder="Username" class="field" id="username" pattern="[A-Z,a-z,0-9]{1,10}">
+                <input type="password" placeholder="Password" class="field" id="password" pattern="[A-Z,a-z,0-9]{1,10}">
                 <button class="btn" id="login_btn">Login</button>
             </div>
             <button class="btn" id="new_user">New user</button>

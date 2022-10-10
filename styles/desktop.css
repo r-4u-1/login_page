@@ -31,19 +31,18 @@ nav h1 {
 }
 
 /* Links inside the navbar */
-.navbar_options a, #nav_new_user, #login, #logout{
+.navbar_options #nav_new_user,#login,#logout{
     color: #f2f2f2;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 /* Change background on mouse-over */
-.navbar_options a, #nav_new_user, #login, #logout :hover {
+.navbar_options #nav_new_user:hover, #login:hover, #logout:hover {
     background: rgba(1, 86, 5, 0.303);
     color: rgb(254, 254, 254);
     cursor: pointer;
 }
-
 
 body {
     font-family: 'Roboto', sans-serif;
